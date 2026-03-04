@@ -2,6 +2,7 @@
 // @ts-ignore
 import type ICategoria from '@/interfaces/ICategoria';
 import type { PropType } from 'vue';
+import Tag from './Tag.vue';
 
 export default {
  props: {
@@ -9,6 +10,10 @@ export default {
         type: Object as PropType<ICategoria>,
         required: true
     }
+ },
+
+ components: {
+  Tag
  }
 }
 </script>
@@ -23,7 +28,7 @@ export default {
 
         <ul class="categoria__ingredientes">
             <li v-for="ingrediente in categoria.ingredientes" :key="ingrediente">
-               {{ ingrediente }}
+               <Tag :texto="ingrediente" />
             </li>
         </ul>
     </article>
@@ -37,7 +42,6 @@ export default {
   background: var(--branco, #FFF);
   box-shadow: 4px 4px 10px 0px rgba(68, 68, 68, 0.05);
   height: 100%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
