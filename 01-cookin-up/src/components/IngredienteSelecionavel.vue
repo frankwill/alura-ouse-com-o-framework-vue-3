@@ -9,6 +9,8 @@ export default {
         }
     },
 
+    emits: ['adicionarIngrediente', 'removerIngrediente'],
+
     components: {
         Tag
     },
@@ -17,6 +19,17 @@ export default {
         return {
             selecionado: false
         }
+    },
+
+    methods: {
+        aoClicar() {
+            this.selecionado = !this.selecionado
+            if(this.selecionado) {
+                this.$emit('adicionarIngrediente', this.ingrediente)
+            } else {
+                this.$emit('removerIngrediente', this.ingrediente)
+            }
+        }
     }
 }
 </script>
@@ -24,7 +37,7 @@ export default {
 <template>
     <button
         class="ingrediente"
-        @click="selecionado = !selecionado"
+        @click="aoClicar"
         :aria-pressed="selecionado"
     >
         <Tag :texto="ingrediente" :ativa="selecionado" />

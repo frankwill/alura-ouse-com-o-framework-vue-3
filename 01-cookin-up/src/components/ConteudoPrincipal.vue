@@ -1,34 +1,47 @@
 <script lang="ts">
-import SelecionarIngredientes from './SelecionarIngredientes.vue';
-import SuaLista from './SuaLista.vue';
-import Tag from './Tag.vue';
+import SelecionarIngredientes from "./SelecionarIngredientes.vue"
+import SuaLista from "./SuaLista.vue"
+import Tag from "./Tag.vue"
 
 export default {
-    data() {
-        return {
-            ingredientes: ['Alho', 'Manteiga', 'Orégano']
-        }
-    },
-    components: {
-      SelecionarIngredientes,
-      Tag,
-      SuaLista
+  components: {
+    SelecionarIngredientes,
+    Tag,
+    SuaLista,
+  },
+  data() {
+    return {
+      ingredientes: [] as string[],
     }
+  },
+  methods: {
+    adicionarIngrediente(ingrediente: string) {
+      this.ingredientes.push(ingrediente)
+    },
+
+    removerIngrediente(ingrediente: string) {
+      const index = this.ingredientes.indexOf(ingrediente)
+      this.ingredientes.splice(index, 1)
+    }
+  }
 }
 </script>
 
 <template>
-    <main class="conteudo-principal">
-        <SuaLista :ingredientes="ingredientes" />
-        <SelecionarIngredientes />
-    </main>
+  <main class="conteudo-principal">
+    <SuaLista :ingredientes="ingredientes" />
+    <SelecionarIngredientes
+      @adicionar-ingrediente="adicionarIngrediente"
+      @remover-ingrediente="removerIngrediente"
+    />
+  </main>
 </template>
 
 <style scoped>
 .conteudo-principal {
   padding: 6.5rem 7.5rem;
   border-radius: 3.75rem 3.75rem 0rem 0rem;
-  background: var(--creme, #FFFAF3);
+  background: var(--creme, #fffaf3);
   color: var(--cinza, #444);
 
   display: flex;
