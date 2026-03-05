@@ -1,11 +1,26 @@
-<script setup lang="ts"></script>
+<script lang="ts">
+import { defineComponent } from "vue";
+import BarraLateral from "./components/BarraLateral.vue";
+import Formulario from "./components/Formulario.vue";
+
+export default defineComponent({
+  name: "App",
+  components: {
+    BarraLateral,
+    Formulario,
+  },
+});
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <main class="columns is-gapless is-multiline">
+    <div class="column is-one-quarter">
+      <BarraLateral />
+    </div>
+    <div class="column is-three-quarter">
+      <Formulario />
+    </div>
+  </main>
 </template>
 
 <style scoped></style>
