@@ -7,6 +7,7 @@ import CardCategoria from "./CardCategoria.vue"
 import BotaoPrincipal from "./BotaoPrincipal.vue"
 
 export default {
+  name: "SelecionarIngredientes",
   emits: ["adicionarIngrediente", "removerIngrediente", "buscarReceitas"],
 
   data() {
