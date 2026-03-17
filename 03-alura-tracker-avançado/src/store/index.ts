@@ -1,6 +1,6 @@
-import type IProjeto from "@/interface/IProjeto";
+import type IProjeto from "../interface/IProjeto";
 import type { InjectionKey } from "vue";
-import { createStore, Store } from "vuex/types/index.js";
+import { createStore, Store } from "vuex";
 
 interface Estado {
   projetos: IProjeto[];
