@@ -4,6 +4,7 @@ import Formulario from "../components/Formulario.vue";
 import Tarefa from "../components/Tarefa.vue";
 import type ITarefa from "../interface/ITarefa";
 import Box from "../components/Box.vue";
+import { useStore } from "@/store";
 
 export default defineComponent({
   name: "Tarefas",
@@ -26,6 +27,13 @@ export default defineComponent({
     salvarTarefa(tarefa: ITarefa) {
       this.tarefas.push(tarefa);
     },
+  },
+  setup() {
+    const store = useStore();
+
+    return {
+      store,
+    };
   },
 });
 </script>
