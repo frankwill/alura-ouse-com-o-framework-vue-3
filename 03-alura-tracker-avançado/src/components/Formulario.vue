@@ -33,7 +33,6 @@ import { key } from "@/store";
 import { useStore } from "vuex";
 
 export default defineComponent({
-  // eslint-disable-next-line vue/multi-word-component-names
   name: "Formulario",
   emits: ["aoSalvarTarefa"],
   components: {

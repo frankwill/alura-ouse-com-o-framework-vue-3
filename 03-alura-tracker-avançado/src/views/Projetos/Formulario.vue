@@ -1,6 +1,5 @@
 <template>
-  <section class="projetos">
-    <h1 class="title">Projetos</h1>
+  <section>
     <form @submit.prevent="salvar">
       <div class="field">
         <label for="nome-do-projeto" class="label">Nome do projeto</label>
@@ -18,7 +17,6 @@ import { useStore } from "@/store";
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  // eslint-disable-next-line vue/multi-word-component-names
   name: "Formulario",
   props: {
     id: {
@@ -59,9 +57,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-.projetos {
-  padding: 1.25rem;
-}
-</style>

@@ -5,7 +5,6 @@ import type ITarefa from "../interface/ITarefa";
 import Box from "./Box.vue";
 
 export default defineComponent({
-  // eslint-disable-next-line vue/multi-word-component-names
   name: "Tarefa",
   components: {
     Cronometro,
