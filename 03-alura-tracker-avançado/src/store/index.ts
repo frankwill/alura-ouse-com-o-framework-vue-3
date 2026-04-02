@@ -10,10 +10,12 @@ import {
   REMOVE_TAREFA,
 } from "./tipo-mutacoes";
 import type ITarefa from "@/interface/ITarefa";
+import { TipoNotificacao, type INotificacao } from "@/interface/INotificacao";
 
 interface Estado {
   projetos: IProjeto[];
   tarefas: ITarefa[];
+  notificacoes: INotificacao[];
 }
 
 export const key: InjectionKey<Store<Estado>> = Symbol();
@@ -22,6 +24,26 @@ export const store = createStore<Estado>({
   state: {
     projetos: [],
     tarefas: [],
+    notificacoes: [
+      {
+        id: 1,
+        texto: "Uma notificação de sucesso",
+        titulo: "Sucesso",
+        tipo: TipoNotificacao.SUCESSO,
+      },
+      {
+        id: 2,
+        texto: "Uma notificação de atenção",
+        titulo: "Atenção",
+        tipo: TipoNotificacao.ATENCAO,
+      },
+      {
+        id: 3,
+        texto: "Uma notificação de falha",
+        titulo: "Falha",
+        tipo: TipoNotificacao.FALHA,
+      },
+    ],
   },
   mutations: {
     [ADICIONA_PROJETO](state, nomeDoProjeto: string) {
