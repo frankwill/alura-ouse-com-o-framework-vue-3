@@ -7,10 +7,11 @@ import {
   ALTERA_PROJETO,
   ATUALIZA_TAREFA,
   EXCLUIR_PROJETO,
+  NOTIFICAR,
   REMOVE_TAREFA,
 } from "./tipo-mutacoes";
 import type ITarefa from "@/interface/ITarefa";
-import { TipoNotificacao, type INotificacao } from "@/interface/INotificacao";
+import { type INotificacao } from "@/interface/INotificacao";
 
 interface Estado {
   projetos: IProjeto[];
@@ -24,26 +25,7 @@ export const store = createStore<Estado>({
   state: {
     projetos: [],
     tarefas: [],
-    notificacoes: [
-      {
-        id: 1,
-        texto: "Uma notificação de sucesso",
-        titulo: "Sucesso",
-        tipo: TipoNotificacao.SUCESSO,
-      },
-      {
-        id: 2,
-        texto: "Uma notificação de atenção",
-        titulo: "Atenção",
-        tipo: TipoNotificacao.ATENCAO,
-      },
-      {
-        id: 3,
-        texto: "Uma notificação de falha",
-        titulo: "Falha",
-        tipo: TipoNotificacao.FALHA,
-      },
-    ],
+    notificacoes: [],
   },
   mutations: {
     [ADICIONA_PROJETO](state, nomeDoProjeto: string) {
@@ -70,6 +52,16 @@ export const store = createStore<Estado>({
     },
     [REMOVE_TAREFA](state, id: string) {
       state.tarefas = state.tarefas.filter((p) => p.id != id);
+    },
+    [NOTIFICAR](state, novaNotificacao: INotificacao) {
+      novaNotificacao.id = new Date().getTime();
+      state.notificacoes.push(novaNotificacao);
+
+      setTimeout(() => {
+        state.notificacoes = state.notificacoes.filter(
+          (notificacao) => notificacao.id != novaNotificacao.id,
+        );
+      }, 3000);
     },
   },
 });
