@@ -6,12 +6,15 @@ import {
   ADICIONA_TAREFA,
   ALTERA_PROJETO,
   ATUALIZA_TAREFA,
+  DEFINIR_PROJETOS,
   EXCLUIR_PROJETO,
   NOTIFICAR,
   REMOVE_TAREFA,
 } from "./tipo-mutacoes";
 import type ITarefa from "@/interface/ITarefa";
 import { type INotificacao } from "@/interface/INotificacao";
+import { OBTER_PROJETOS } from "./tipo-acoes";
+import clienteHttp from "@/http";
 
 interface Estado {
   projetos: IProjeto[];
@@ -42,6 +45,9 @@ export const store = createStore<Estado>({
     [EXCLUIR_PROJETO](state, id: string) {
       state.projetos = state.projetos.filter((proj) => proj.id !== id);
     },
+    [DEFINIR_PROJETOS](state, projetos: IProjeto[]) {
+      state.projetos = projetos;
+    },
     [ADICIONA_TAREFA](state, tarefa: ITarefa) {
       tarefa.id = new Date().toISOString();
       state.tarefas.push(tarefa);
@@ -62,6 +68,11 @@ export const store = createStore<Estado>({
           (notificacao) => notificacao.id != novaNotificacao.id,
         );
       }, 3000);
+    },
+  },
+  actions: {
+    [OBTER_PROJETOS]({ commit }) {
+      clienteHttp.get("projetos").then((resposta) => commit(DEFINIR_PROJETOS, resposta.data));
     },
   },
 });
