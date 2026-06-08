@@ -16,6 +16,7 @@ import { type INotificacao } from "@/interface/INotificacao";
 import {
   ALTERAR_PROJETO,
   CADASTRAR_PROJETO,
+  CADASTRAR_TAREFA,
   DEFINIR_TAREFAS,
   OBTER_PROJETOS,
   OBTER_TAREFAS,
@@ -59,7 +60,6 @@ export const store = createStore<Estado>({
       state.tarefas = tarefas;
     },
     [ADICIONA_TAREFA](state, tarefa: ITarefa) {
-      tarefa.id = new Date().toISOString();
       state.tarefas.push(tarefa);
     },
     [ATUALIZA_TAREFA](state, tarefa: ITarefa) {
@@ -90,13 +90,18 @@ export const store = createStore<Estado>({
       });
     },
     [ALTERAR_PROJETO](context, projeto: IProjeto) {
-      return http.put(`/projetos/${projeto.id}`, projeto);
+      return http.put(`projetos/${projeto.id}`, projeto);
     },
     [REMOVER_PROJETO]({ commit }, id: string) {
-      return http.delete(`/projetos/${id}`).then(() => commit(EXCLUIR_PROJETO, id));
+      return http.delete(`projetos/${id}`).then(() => commit(EXCLUIR_PROJETO, id));
     },
     [OBTER_TAREFAS]({ commit }) {
       http.get("tarefas").then((resposta) => commit(DEFINIR_TAREFAS, resposta.data));
+    },
+    [CADASTRAR_TAREFA]({ commit }, tarefa: ITarefa) {
+      return http
+        .post("tarefas", tarefa)
+        .then((resposta) => commit(ADICIONA_TAREFA, resposta.data));
     },
   },
 });

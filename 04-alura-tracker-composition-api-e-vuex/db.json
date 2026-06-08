@@ -14,6 +14,60 @@
         "id": 1,
         "nome": "Alura Tracker 3.0"
       }
+    },
+    {
+      "duracaoEmSegundos": 3,
+      "descricao": "Refatoração do Vuex",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura Tracker 3.0"
+      },
+      "id": 2
+    },
+    {
+      "duracaoEmSegundos": 3,
+      "descricao": "asasas",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura Tracker 3.0"
+      },
+      "id": 3
+    },
+    {
+      "duracaoEmSegundos": 2,
+      "descricao": "Estudando padrões de projeot",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura Tracker 3.0"
+      },
+      "id": 4
+    },
+    {
+      "duracaoEmSegundos": 1,
+      "descricao": "aaaa",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura Tracker 3.0"
+      },
+      "id": 5
+    },
+    {
+      "duracaoEmSegundos": 4,
+      "descricao": "teste",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura Tracker 3.0"
+      },
+      "id": 6
+    },
+    {
+      "duracaoEmSegundos": 0,
+      "descricao": "1",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura Tracker 3.0"
+      },
+      "id": 7
     }
   ]
 }
