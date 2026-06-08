@@ -16,12 +16,18 @@ export default defineComponent({
       required: true,
     },
   },
+  emits: ["aoTarefaClicada"],
+  methods: {
+    tarefaClicada(): void {
+      this.$emit("aoTarefaClicada", this.tarefa);
+    },
+  },
 });
 </script>
 
 <template>
   <Box>
-    <div class="columns">
+    <div class="columns clicavel" @click="tarefaClicada">
       <div class="column is-4">{{ tarefa.descricao || "Tarefa sem descrição" }}</div>
       <div class="column is-3">
         {{ tarefa.projeto.nome }}
@@ -33,4 +39,8 @@ export default defineComponent({
   </Box>
 </template>
 
-<style scoped></style>
+<style scoped>
+.clicavel {
+  cursor: pointer;
+}
+</style>
