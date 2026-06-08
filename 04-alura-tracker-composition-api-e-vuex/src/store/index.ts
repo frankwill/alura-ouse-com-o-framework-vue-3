@@ -13,8 +13,8 @@ import {
 } from "./tipo-mutacoes";
 import type ITarefa from "@/interface/ITarefa";
 import { type INotificacao } from "@/interface/INotificacao";
-import { OBTER_PROJETOS } from "./tipo-acoes";
-import clienteHttp from "@/http";
+import { ALTERAR_PROJETO, CADASTRAR_PROJETO, OBTER_PROJETOS, REMOVER_PROJETO } from "./tipo-acoes";
+import http from "@/http";
 
 interface Estado {
   projetos: IProjeto[];
@@ -72,7 +72,18 @@ export const store = createStore<Estado>({
   },
   actions: {
     [OBTER_PROJETOS]({ commit }) {
-      clienteHttp.get("projetos").then((resposta) => commit(DEFINIR_PROJETOS, resposta.data));
+      http.get("projetos").then((resposta) => commit(DEFINIR_PROJETOS, resposta.data));
+    },
+    [CADASTRAR_PROJETO](context, nomeDoProjeto) {
+      return http.post("projetos", {
+        nome: nomeDoProjeto,
+      });
+    },
+    [ALTERAR_PROJETO](context, projeto: IProjeto) {
+      return http.put(`/projetos/${projeto.id}`, projeto);
+    },
+    [REMOVER_PROJETO]({ commit }, id: string) {
+      return http.delete(`/projetos/${id}`).then(() => commit(EXCLUIR_PROJETO, id));
     },
   },
 });
