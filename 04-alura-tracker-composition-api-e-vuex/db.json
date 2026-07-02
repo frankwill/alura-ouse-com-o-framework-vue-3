@@ -1,8 +1,8 @@
 {
   "projetos": [
     {
-      "id": 1,
-      "nome": "Alura Tracker 3.0"
+      "nome": "Alura Tracker 3.0",
+      "id": 1
     }
   ],
   "tarefas": [
@@ -68,6 +68,15 @@
         "nome": "Alura Tracker 3.0"
       },
       "id": 7
+    },
+    {
+      "duracaoEmSegundos": 3,
+      "descricao": "2",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura Tracker 3.0"
+      },
+      "id": 8
     }
   ]
 }
