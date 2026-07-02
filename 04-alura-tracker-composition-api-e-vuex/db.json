@@ -3,6 +3,10 @@
     {
       "nome": "Alura Tracker 3.0",
       "id": 1
+    },
+    {
+      "id": 2,
+      "nome": "Estudos pessoais"
     }
   ],
   "tarefas": [
