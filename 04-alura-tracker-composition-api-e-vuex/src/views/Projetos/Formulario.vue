@@ -17,7 +17,7 @@ import notificador from "@/hooks/notificador";
 import { TipoNotificacao } from "@/interface/INotificacao";
 import { useStore } from "@/store";
 import { ALTERAR_PROJETO, CADASTRAR_PROJETO } from "@/store/tipo-acoes";
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   name: "Formulario",
@@ -26,17 +26,17 @@ export default defineComponent({
       type: String,
     },
   },
-  mounted() {
-    if (this.id) {
-      const projeto = this.store.state.projeto.projetos.find((proj) => proj.id == this.id);
-      this.nomeDoProjeto = projeto?.nome || "";
-    }
-  },
-  data() {
-    return {
-      nomeDoProjeto: "",
-    };
-  },
+  // mounted() {
+  //   if (this.id) {
+  //     const projeto = this.store.state.projeto.projetos.find((proj) => proj.id == this.id);
+  //     this.nomeDoProjeto = projeto?.nome || "";
+  //   }
+  // },
+  // data() {
+  //   return {
+  //     nomeDoProjeto: "",
+  //   };
+  // },
   methods: {
     salvar() {
       if (this.id) {
@@ -62,13 +62,21 @@ export default defineComponent({
       this.$router.push("/projetos");
     },
   },
-  setup() {
+  setup(props) {
     const store = useStore();
     const { notificar } = notificador();
+
+    const nomeDoProjeto = ref("");
+
+    if (props.id) {
+      const projeto = store.state.projeto.projetos.find((proj) => proj.id == props.id);
+      nomeDoProjeto.value = projeto?.nome || "";
+    }
 
     return {
       store,
       notificar,
+      nomeDoProjeto,
     };
   },
 });
