@@ -89,6 +89,15 @@
         "nome": "Alura Tracker 3.0"
       },
       "id": 8
+    },
+    {
+      "duracaoEmSegundos": 3,
+      "descricao": "Configuração do ambiente FINAL1",
+      "projeto": {
+        "id": 3,
+        "nome": "Estudando Composition API"
+      },
+      "id": 9
     }
   ]
 }
