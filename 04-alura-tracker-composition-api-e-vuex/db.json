@@ -19,85 +19,13 @@
   ],
   "tarefas": [
     {
-      "id": 1,
-      "duracaoEmSegundos": 120,
+      "duracaoEmSegundos": 3,
       "descricao": "Configuração do ambiente",
       "projeto": {
-        "id": 1,
-        "nome": "Alura Tracker 3.0"
-      }
-    },
-    {
-      "duracaoEmSegundos": 3,
-      "descricao": "Refatoração do Vuex",
-      "projeto": {
-        "id": 1,
-        "nome": "Alura Tracker 3.0"
+        "nome": "Alura Tracker 3.0",
+        "id": 1
       },
-      "id": 2
-    },
-    {
-      "duracaoEmSegundos": 3,
-      "descricao": "asasas",
-      "projeto": {
-        "id": 1,
-        "nome": "Alura Tracker 3.0"
-      },
-      "id": 3
-    },
-    {
-      "duracaoEmSegundos": 2,
-      "descricao": "Estudando padrões de projetos",
-      "projeto": {
-        "id": 1,
-        "nome": "Alura Tracker 3.0"
-      },
-      "id": 4
-    },
-    {
-      "duracaoEmSegundos": 1,
-      "descricao": "aaaa",
-      "projeto": {
-        "id": 1,
-        "nome": "Alura Tracker 3.0"
-      },
-      "id": 5
-    },
-    {
-      "duracaoEmSegundos": 4,
-      "descricao": "teste",
-      "projeto": {
-        "id": 1,
-        "nome": "Alura Tracker 3.0"
-      },
-      "id": 6
-    },
-    {
-      "duracaoEmSegundos": 0,
-      "descricao": "1",
-      "projeto": {
-        "id": 1,
-        "nome": "Alura Tracker 3.0"
-      },
-      "id": 7
-    },
-    {
-      "duracaoEmSegundos": 3,
-      "descricao": "2",
-      "projeto": {
-        "id": 1,
-        "nome": "Alura Tracker 3.0"
-      },
-      "id": 8
-    },
-    {
-      "duracaoEmSegundos": 3,
-      "descricao": "Configuração do ambiente FINAL1",
-      "projeto": {
-        "id": 3,
-        "nome": "Estudando Composition API"
-      },
-      "id": 9
+      "id": 1
     }
   ]
 }
