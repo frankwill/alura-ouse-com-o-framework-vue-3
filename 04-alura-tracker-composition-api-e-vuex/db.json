@@ -26,6 +26,24 @@
         "id": 1
       },
       "id": 1
+    },
+    {
+      "duracaoEmSegundos": 1,
+      "descricao": "Estudando Vuex",
+      "projeto": {
+        "id": 2,
+        "nome": "Estudos pessoais"
+      },
+      "id": 2
+    },
+    {
+      "duracaoEmSegundos": 2,
+      "descricao": "Estudando Composition API",
+      "projeto": {
+        "id": 3,
+        "nome": "Estudando Composition API"
+      },
+      "id": 3
     }
   ]
 }
