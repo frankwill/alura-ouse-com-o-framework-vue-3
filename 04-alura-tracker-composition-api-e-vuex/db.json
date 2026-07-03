@@ -44,6 +44,15 @@
         "nome": "Estudando Composition API"
       },
       "id": 3
+    },
+    {
+      "duracaoEmSegundos": 2,
+      "descricao": "Teste",
+      "projeto": {
+        "id": 2,
+        "nome": "Estudos pessoais"
+      },
+      "id": 4
     }
   ]
 }
