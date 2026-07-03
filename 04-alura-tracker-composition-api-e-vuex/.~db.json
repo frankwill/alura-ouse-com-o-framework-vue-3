@@ -38,7 +38,7 @@
     },
     {
       "duracaoEmSegundos": 2,
-      "descricao": "Estudando Composition API 1",
+      "descricao": "Estudando Composition API",
       "projeto": {
         "id": 3,
         "nome": "Estudando Composition API"
