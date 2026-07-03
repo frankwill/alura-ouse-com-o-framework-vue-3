@@ -17,11 +17,11 @@
       @aoTarefaClicada="selecionarTarefa"
     />
     <Modal v-if="tarefaSelecionada" :mostrar="tarefaSelecionada != null">
-      <header class="modal-card-head">
+      <template #cabecalho>
         <p class="modal-card-title">Editando uma tarefa</p>
         <button class="delete" aria-label="close" @click="fecharModal"></button>
-      </header>
-      <section class="modal-card-body">
+      </template>
+      <template #corpo>
         <div class="field">
           <label for="descricaoDaTarefa" class="label">Descrição</label>
           <input
@@ -31,13 +31,13 @@
             id="descricaoDaTarefa"
           />
         </div>
-      </section>
-      <footer class="modal-card-foot">
+      </template>
+      <template #rodape>
         <div class="buttons">
           <button @click="alterarTarefa" class="button is-success">Salvar alterações</button>
           <button @click="fecharModal" class="button">Cancelar</button>
         </div>
-      </footer>
+      </template>
     </Modal>
   </div>
 </template>
